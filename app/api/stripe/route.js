@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { headers } from "next/headers";
 import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
 export async function POST(request) {
@@ -36,8 +37,8 @@ export async function POST(request) {
 						quantity,
 					};
 				}),
-				success_url: `http://localhost:3000/`,
-				cancel_url: `http://localhost:3000/`,
+				success_url: `${process.env.NEXT_PUBLIC_ORIGIN}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
+				cancel_url: `${process.env.NEXT_PUBLIC_ORIGIN}/payment/failed?session_id={CHECKOUT_SESSION_ID}`,
 			};
 			const session = await stripe.checkout.sessions.create(params);
 			return NextResponse.json({ session }, { status: 200 });
