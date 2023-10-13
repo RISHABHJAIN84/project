@@ -12,7 +12,7 @@ Sanity
 Stripe
 
 **Authentication**
-Next Auth Google Provided
+Next Auth Google Provider
 
 **Deployment**
 Vercel
