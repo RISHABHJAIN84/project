@@ -6,12 +6,23 @@ function PaymentFailed() {
 	return (
 		<Container
 			maxWidth={false}
-			className="w-[100vw] h-[100vh] bg-[#eee] flex items-center justify-center"
+			sx={{
+				display: "flex",
+				alignItems: "center",
+				justifyContent: "center",
+				width: "100vw",
+				height: "100vh",
+				backgroundColor: "#eee",
+			}}
 		>
 			<Box className="flex flex-col items-center gap-4 bg-white rounded-2xl shadow-lg p-12 sm:p-16">
-				<CancelIcon className="text-[5rem] text-red" />
+				<CancelIcon sx={{ fontSize: "5rem", color: "red" }} />
 				<Typography
-					className="font-semibold font-Poppins sm:text-[1.2rem] w-[70%]"
+					sx={{
+						fontSize: { xs: "1rem", sm: "1.2rem" },
+						fontWeight: { xs: 500, sm: 600 },
+						width: { xs: "100%", sm: "70%" },
+					}}
 					textAlign="center"
 				>
 					We're sorry, but your payment could not be processed successfully.
@@ -20,7 +31,11 @@ function PaymentFailed() {
 					component="a"
 					variant="h6"
 					href="/"
-					className="font-semibold font-Poppins text-red text-[1.2rem] rounded-2xl transition-all"
+					sx={{
+						fontSize: "1.2rem",
+						fontWeight: 600,
+						color: "red",
+					}}
 				>
 					Home
 				</Typography>
