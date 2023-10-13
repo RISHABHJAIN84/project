@@ -1,27 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+::-webkit-scrollbar {
+	width: 0.2em;
+    
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+
+::-webkit-scrollbar-thumb {
+	background-color: rgb(192, 192, 192);
+    border-radius: 4px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.animate-slider {
+	animation: slide 16s infinite alternate;
+}
+@keyframes slide {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(0);
+	}
+	30% {
+		transform: translateX(-100%);
+	}
+	50% {
+		transform: translateX(-100%);
+	}
+	55% {
+		transform: translateX(-200%);
+	}
+	75% {
+		transform: translateX(-200%);
+	}
+	80% {
+		transform: translateX(-300%);
+	}
+	100% {
+		transform: translateX(-300%);
+	}
+	
 }
