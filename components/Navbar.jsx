@@ -17,7 +17,7 @@ function Navbar() {
 	const { cartItems } = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
 	return (
-		<AppBar position="sticky" className="bg-white/50 backdrop-blur-sm z-10" >
+		<AppBar position="sticky" className="bg-white/50 backdrop-blur-sm z-10" sx={{backgroundColor: "#fff"}} >
 			<Toolbar className="flex">
 				<Box className="flex grow items-center gap-2">
 					<Brightness7Icon className="text-black text-[1.4rem] sm:text-[1.8rem]"/>
