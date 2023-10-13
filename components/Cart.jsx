@@ -8,13 +8,21 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CartProduct from "@/components/CartProduct";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import getStripe from "@/lib/stripe/getStripe";
-
+import { useSession } from "next-auth/react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Cart() {
 	const { cartItems } = useSelector((state) => state.cart);
+	const {data: session, status} = useSession();
 	const dispatch = useDispatch();
 	const { showCart } = useSelector((state) => state.cart);
 	const [loading, setLoading] = useState(false);
+	const notify = () => toast("Please sign in to continue!");
 	const handleCheckout = async () => {
+		if (!session) {
+			notify();
+			return;
+		}
 		try {
 			setLoading(true);
 			const stripe = await getStripe();
@@ -39,6 +47,7 @@ function Cart() {
 	};
 	return showCart ? (
 		<Box className="w-full bg-black/50 fixed right-0 top-0 z-20 transition-all">
+			<ToastContainer />
 			<Box className="w-[100vw] sm:w-[70vw] md:w-[50vw] lg:w-[30vw] h-[100vh] relative float-right opacity-100 py-16 px-4 bg-white flex flex-col items-center z-20">
 				<Box className="flex items-center gap-2">
 					<ArrowBackIosNewIcon

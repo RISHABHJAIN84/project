@@ -4,10 +4,14 @@ import Product from "./Product";
 import { productsQuery } from "@/sanity/lib/query";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 async function Products() {
-	const products = await sanityFetch({ query: productsQuery });
+	let products = await sanityFetch({ query: productsQuery });
+	products = products.sort((a, b) => {
+		return a.price - b.price - (a.rating - b.rating);
+	});
 	return (
 		<Container>
-			<Grid container spacing={{xs: 1, sm: 4}}>
+			<Box></Box>
+			<Grid container spacing={{ xs: 1, sm: 4 }}>
 				{!!products?.length &&
 					products.map((product) => {
 						return (

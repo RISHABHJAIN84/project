@@ -1,5 +1,7 @@
-import CancelIcon from '@mui/icons-material/Cancel';
+"use client";
+import CancelIcon from "@mui/icons-material/Cancel";
 import { Box, Container, Typography } from "@mui/material";
+
 function PaymentFailed() {
 	return (
 		<Container
@@ -13,6 +15,14 @@ function PaymentFailed() {
 					textAlign="center"
 				>
 					We're sorry, but your payment could not be processed successfully.
+				</Typography>
+				<Typography
+					component="a"
+					variant="h6"
+					href="/"
+					className="font-semibold font-Poppins text-red text-[1.2rem] rounded-2xl transition-all"
+				>
+					Home
 				</Typography>
 			</Box>
 		</Container>

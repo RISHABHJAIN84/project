@@ -2,15 +2,25 @@ import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 export async function POST(request) {
-	const { cartItems } = await request.json();
 	try {
+		const { cartItems } = await request.json();
+		const userSession = await getServerSession(authOptions);
+		if (!userSession) {
+			return NextResponse.json(
+				{ error: "You must be signed in to make a purchase" },
+				{ status: 401 }
+			);
+		}
 		if (!!cartItems?.length) {
 			const params = {
 				submit_type: "pay",
 				mode: "payment",
 				payment_method_types: ["card"],
 				billing_address_collection: "required",
+				customer_email: userSession?.user?.email,
 				line_items: cartItems.map(({ item, quantity }) => {
 					const img = item.image.asset._ref;
 					const newImage = img

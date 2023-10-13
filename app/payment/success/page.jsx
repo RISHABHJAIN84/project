@@ -24,6 +24,14 @@ function PaymentSuccess() {
 					Thank you for your purchase! Your payment has been successfully
 					processed.
 				</Typography>
+				<Typography
+					component="a"
+					variant="h6"
+					href="/"
+					className="font-semibold font-Poppins text-red text-[1.2rem] rounded-2xl transition-all"
+				>
+					Home
+				</Typography>
 			</Box>
 		</Container>
 	);
