@@ -38,7 +38,7 @@ function Cart() {
 		}
 	};
 	return showCart ? (
-		<Box className="w-full bg-black/50 fixed right-0 top-0 z-10 transition-all">
+		<Box className="w-full bg-black/50 fixed right-0 top-0 z-20 transition-all">
 			<Box className="w-[100vw] sm:w-[70vw] md:w-[50vw] lg:w-[30vw] h-[100vh] relative float-right opacity-100 py-16 px-4 bg-white flex flex-col items-center z-20">
 				<Box className="flex items-center gap-2">
 					<ArrowBackIosNewIcon

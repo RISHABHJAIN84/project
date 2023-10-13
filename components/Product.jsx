@@ -33,8 +33,7 @@ function Product({ image, name, price, rating, slug }) {
 	return (
 		<Grid item xs={6} md={4} lg={2.4}>
 			<Box
-				className="flex flex-col h-full justify-between p-4 rounded-2xl cursor-pointer md:hover:scale-[110%] transition-all bg-white"
-				sx={{ border: "1px #ccc solid" }}
+				className="flex flex-col h-full justify-between p-4 rounded-2xl cursor-pointer md:hover:scale-[110%] transition-all bg-white shadow-md hover:shadow-xl"
 			>
 				<Image
 					src={sanityImgUrl(image)}

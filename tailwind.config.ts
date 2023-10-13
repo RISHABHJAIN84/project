@@ -34,6 +34,7 @@ const config: Config = {
 		extend: {
 			fontFamily: {
 				Poppins: ["Poppins", "sans-serif"],
+				AROneSans: ["AR One Sans", "sans-serif"],
 			},
 			spacing: {
 				"128": "32rem",

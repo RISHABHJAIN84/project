@@ -9,7 +9,7 @@ import { sanityFetch } from '@/sanity/lib/sanityFetch';
 export default async function Home() {
 	const banners = await sanityFetch({ query: bannerQuery });
 	return (
-		<div className='flex flex-col items-center bg-[#eee]'>
+		<div className='flex flex-col items-center bg-[#eee] pb-10'>
 			<Cart />
 			<Navbar />
 			<Banner banners={banners}/>
